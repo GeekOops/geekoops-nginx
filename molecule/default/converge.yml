@@ -15,6 +15,7 @@
         group: "{{nginxuser}}"
         owner: "{{nginxgroup}}"
         mode: 0754
+      register: deployed
     - name: Deploy nginx configuration
       copy:
         content: |
@@ -31,12 +32,15 @@
         owner: root
         group: root
         mode: 0644
-      when: deploy_nginx_config == true
-    - name: Rung nginx check
+      when: deployed.changed and deploy_nginx_config == true
+
+    - name: Perform nginx check
       shell: nginx -t
+      when: deployed.changed
 
     # Restart of nginx is required for the new configuration
     - name: Restart nginx
       systemd:
         name: nginx
         state: restarted
+      when: deployed.changed
