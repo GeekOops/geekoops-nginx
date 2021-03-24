@@ -1,0 +1,12 @@
+---
+# Debian Buster specific variables
+
+## Software packages
+
+packages: ['nginx', 'nginx-full']
+nginx_service: "nginx"
+
+## OS-Specific directories
+
+www_dir: "/var/www/html"
+vhosts_dir: "/etc/nginx/sites-enabled"

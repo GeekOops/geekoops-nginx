@@ -1,0 +1,42 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include geekoops-nginx"
+      include_role:
+        name: "geekoops-nginx"
+    ## Setup test enviroment
+    # Deploy a test site and serve it
+    - name: Deploy test page
+      copy:
+        content: |
+          <html>Success! The test page is displayed correctly</html>
+        dest: "{{www_dir}}/index.html"
+        group: "{{nginxuser}}"
+        owner: "{{nginxgroup}}"
+        mode: 0754
+    - name: Deploy nginx configuration
+      copy:
+        content: |
+              server {
+                  listen 80 default_server;
+                  listen [::]:80 default_server;
+                  root {{ www_dir }};
+                  index index.html index.htm;
+                  location / {
+                      try_files $uri $uri/ =404;
+                  }
+              }
+        dest: "{{vhosts_dir}}/default.conf"
+        owner: root
+        group: root
+        mode: 0644
+      when: deploy_nginx_config == true
+    - name: Rung nginx check
+      shell: nginx -t
+
+    # Restart of nginx is required for the new configuration
+    - name: Restart nginx
+      systemd:
+        name: nginx
+        state: restarted

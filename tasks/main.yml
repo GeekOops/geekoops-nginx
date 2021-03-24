@@ -1,0 +1,13 @@
+---
+# tasks file for geekoops-nginx
+
+# Distribution specific vars are ALWAYS needed, so don't forget the tags here
+- name: include distribution specific vars
+  include_vars: "{{ansible_distribution}}_{{ansible_distribution_version}}.yml"
+  tags: ['nginx', 'firewall', 'systemd']
+
+- include: software.yml
+- include: firewall.yml
+  when: config_firewall == true
+- include: default-page.yml
+  when: setup_default_page == true

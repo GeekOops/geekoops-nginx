@@ -1,0 +1,30 @@
+---
+galaxy_info:
+  author: Felix Niederwanger
+  description: Configurable nginx setup role
+  company: SUSE
+
+  # If the issue tracker for your role is not on github, uncomment the
+  # next line and provide a value
+  # issue_tracker_url: http://example.com/issue/tracker
+
+  license: license MIT
+
+  min_ansible_version: 2.9
+
+  # To view available platforms and versions (or releases), visit:
+  # https://galaxy.ansible.com/api/v1/platforms/
+  #
+  platforms:
+    - name: opensuse
+      versions:
+        - 15.2
+    - name: debian
+      versions:
+        - buster
+
+  galaxy_tags:
+    - nginx
+    - lemp
+
+dependencies: []

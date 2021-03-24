@@ -1,0 +1,12 @@
+---
+# openSUSE Leap 15.2 specific variables
+
+## Software packages
+
+packages: ['nginx', 'nginx-module-brotli']
+nginx_service: "nginx"
+
+## OS-Specific directories
+
+www_dir: "/srv/www/htdocs"
+vhosts_dir: "/etc/nginx/vhosts.d"
