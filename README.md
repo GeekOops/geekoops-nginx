@@ -1,3 +1,5 @@
+[![Test deployment](https://github.com/GeekOops/geekoops-nginx/actions/workflows/CI.yml/badge.svg)](https://github.com/GeekOops/geekoops-nginx/actions/workflows/CI.yml)
+
 # geekoops-nginx
 
 Configurable ansible role for setting up a nginx webserver on a Linux server. Works with
