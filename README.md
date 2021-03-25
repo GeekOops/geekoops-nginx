@@ -12,10 +12,14 @@ You can set the following variables to configure the role. Here listed are the v
 
 Firewall configuration (disable by default)
 
-	config_firewall: false               # Enable firewall configuration
-	firewall_zone: "public"              # Firewall zone to configure
-    open_http: true                      # Enable http on the firewall_zone
-    open_https: true                     # Enable https on the firewall_zone
+
+| Value | Description | Default |
+|-------|-------------|---------|
+|`config_firewall` | Enable firewall configuration | false |
+|`firewall_zone` | Firewall zone to configure | "public" |
+|`open_http` | Open http port | true |
+|`open_https` | Open https port | true |
+|`nginx_user` | 
 
 Custom `nginx` settings
 
