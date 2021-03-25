@@ -19,12 +19,8 @@ Firewall configuration (disable by default)
 |`firewall_zone` | Firewall zone to configure | "public" |
 |`open_http` | Open http port | true |
 |`open_https` | Open https port | true |
-|`nginx_user` | 
-
-Custom `nginx` settings
-
-	nginx_user: "nginx"                  # Default nginx user (for permission ecc.)
-	nginx_group: "nginx"                 # Default nginx group (for permission ecc.)
+|`setup_default_page` | Setup a default page | false |
+|`default_page_hostname`| Hostname for the default page | "localhost" |
 
 
 ## Example Playbook

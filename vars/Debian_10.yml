@@ -10,3 +10,6 @@ nginx_service: "nginx"
 
 www_dir: "/var/www/html"
 vhosts_dir: "/etc/nginx/sites-enabled"
+
+nginx_user: "nginx"
+nginx_group: "nginx"

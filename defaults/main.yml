@@ -10,7 +10,3 @@ config_firewall: false
 firewall_zone: "public"
 open_http: true
 open_https: true
-
-# nginx settings
-nginx_user: "nginx"
-nginx_group: "nginx"
