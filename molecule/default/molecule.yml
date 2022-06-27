@@ -4,22 +4,30 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: leap
-    image: registry.opensuse.org/home/ph03nix/containers/containers/leap:ansible-leap
-    pre_build_image: true
+  - name: leap15_3
+    image: registry.opensuse.org/opensuse/leap:15.3
+    dockerfile: Dockerfile.leap15_3
     command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
+    tmpfs:
+      - /run
+      - /tmp
+  - name: leap15_4
+    image: registry.opensuse.org/opensuse/leap:15.4
+    dockerfile: Dockerfile.leap15_4
+    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     tmpfs:
       - /run
       - /tmp
   - name: bullseye
-    image: grisu48/bullseye-ansible
-    pre_build_image: true
-    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
+    image: docker.io/debian:bullseye
+    dockerfile: Dockerfile.bullseye
+    command: ${MOLECULE_DOCKER_COMMAND:-"/sbin/init"}
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -32,7 +40,10 @@ provisioner:
   name: ansible
   inventory:
     host_vars:
-      leap:
+      leap15_3:
+        vhosts_dir: "/etc/nginx/vhosts.d"
+        deploy_nginx_config: true
+      leap15_4:
         vhosts_dir: "/etc/nginx/vhosts.d"
         deploy_nginx_config: true
       bullseye:
