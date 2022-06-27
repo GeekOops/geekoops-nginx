@@ -4,7 +4,8 @@
 
 Configurable ansible role for setting up a nginx webserver on a Linux server. Works with
 
-- openSUSE Leap 15.2
+- openSUSE Leap 15.3
+- openSUSE Leap 15.4
 - Debian Buster
 
 ## Role Variables
@@ -33,7 +34,7 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: geekoops-nginx, config_firewall: true }
 
-A bit more advanced example for the imaginary `jellyfish` test server
+An advanced example for the imaginary `jellyfish` test server
 
     - hosts: jellyfish
       roles:
@@ -47,12 +48,6 @@ A bit more advanced example for the imaginary `jellyfish` test server
 ## License
 
 MIT
-
-## Author Information
-
-phoenix
-
-Have a lot of fun!
 
 # Development
 
