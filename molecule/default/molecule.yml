@@ -4,9 +4,11 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: leap15_2
-    image: grisu48/leap-ansible
+  - name: leap
+    image: registry.opensuse.org/home/ph03nix/containers/containers/leap:ansible-leap
     pre_build_image: true
+    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
+    privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     capabilities:
@@ -14,14 +16,15 @@ platforms:
     tmpfs:
       - /run
       - /tmp
-  - name: buster
-    image: grisu48/buster-ansible
+  - name: bullseye
+    image: grisu48/bullseye-ansible
     pre_build_image: true
+    command: ${MOLECULE_DOCKER_COMMAND:-"/usr/sbin/init"}
+    privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     capabilities:
       - SYS_ADMIN
-    privileged: true
     tmpfs:
       - /run
       - /tmp
@@ -29,15 +32,11 @@ provisioner:
   name: ansible
   inventory:
     host_vars:
-      leap15_2:
+      leap:
         vhosts_dir: "/etc/nginx/vhosts.d"
-        nginxuser: nginx
-        nginxgroup: nginx
         deploy_nginx_config: true
-      buster:
+      bullseye:
         vhosts_dir: "/etc/nginx/sites-enabled"
-        nginxuser: www-data
-        nginxgroup: www-data
         deploy_nginx_config: false
 verifier:
   name: testinfra

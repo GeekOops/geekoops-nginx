@@ -1,5 +1,5 @@
 ---
-# openSUSE Leap 15.2 specific variables
+# openSUSE Leap 15.3 specific variables
 
 ## Software packages
 
@@ -8,7 +8,7 @@ nginx_service: "nginx"
 
 ## OS-Specific directories
 
-www_dir: "/srv/www/htdocs"
+www_dir: "/srv/www/"
 vhosts_dir: "/etc/nginx/vhosts.d"
 nginx_user: "nginx"
 nginx_group: "nginx"
