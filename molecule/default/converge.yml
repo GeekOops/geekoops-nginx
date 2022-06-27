@@ -12,8 +12,8 @@
         content: |
           <html>Success! The test page is displayed correctly</html>
         dest: "{{www_dir}}/index.html"
-        group: "{{nginxuser}}"
-        owner: "{{nginxgroup}}"
+        group: "{{ nginx_user }}"
+        owner: "{{ nginx_group }}"
         mode: 0754
       register: deployed
     - name: Deploy nginx configuration

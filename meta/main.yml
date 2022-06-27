@@ -1,6 +1,8 @@
 ---
 galaxy_info:
   author: Felix Niederwanger
+  role_name: nginx
+  namespace: geekoops
   description: Configurable nginx setup role
   company: SUSE
   issue_tracker_url: https://github.com/GeekOops/geekoops-nginx/issues
@@ -9,16 +11,14 @@ galaxy_info:
 
   min_ansible_version: 2.9
 
-  # To view available platforms and versions (or releases), visit:
-  # https://galaxy.ansible.com/api/v1/platforms/
-  #
   platforms:
     - name: opensuse
       versions:
-        - 15.2
+        - 15.3
+        - 15.4
     - name: debian
       versions:
-        - buster
+        - bullseye
 
   galaxy_tags:
     - nginx

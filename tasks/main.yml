@@ -6,8 +6,8 @@
   include_vars: "{{ansible_distribution}}_{{ansible_distribution_version}}.yml"
   tags: ['nginx', 'firewall', 'systemd']
 
-- include: software.yml
-- include: firewall.yml
+- include_tasks: software.yml
+- include_tasks: firewall.yml
   when: config_firewall == true
-- include: default-page.yml
+- include_tasks: default-page.yml
   when: setup_default_page == true
