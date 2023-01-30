@@ -22,6 +22,15 @@ platforms:
     tmpfs:
       - /run
       - /tmp
+  - name: bookworm
+    image: docker.io/debian:bookworm
+    dockerfile: Dockerfile.bookworm
+    command: ${MOLECULE_DOCKER_COMMAND:-"/sbin/init"}
+    privileged: true
+    cgroupns: host
+    tmpfs:
+      - /run
+      - /tmp
 provisioner:
   name: ansible
   inventory:
@@ -30,6 +39,9 @@ provisioner:
         vhosts_dir: "/etc/nginx/vhosts.d"
         deploy_nginx_config: true
       bullseye:
+        vhosts_dir: "/etc/nginx/sites-enabled"
+        deploy_nginx_config: false
+      bookworm:
         vhosts_dir: "/etc/nginx/sites-enabled"
         deploy_nginx_config: false
 verifier:
