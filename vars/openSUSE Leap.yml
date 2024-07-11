@@ -1,9 +1,10 @@
 ---
-# openSUSE Leap 15.3 specific variables
+# openSUSE Leap specific variables
 
 ## Software packages
 
-packages: ['nginx', 'nginx-module-brotli']
+packages:
+  - nginx
 nginx_service: "nginx"
 
 ## OS-Specific directories

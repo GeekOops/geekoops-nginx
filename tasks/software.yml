@@ -6,6 +6,7 @@
     name: "{{ packages }}"
     state: present
   tags: ['nginx']
+
 - name: Ensure nginx service is enabled
   systemd:
     name: "{{ nginx_service }}"

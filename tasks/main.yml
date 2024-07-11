@@ -3,11 +3,14 @@
 
 # Distribution specific vars are ALWAYS needed, so don't forget the tags here
 - name: include distribution specific vars
-  include_vars: "{{ansible_distribution}}_{{ansible_distribution_version}}.yml"
+  include_vars: "{{ansible_distribution}}.yml"
   tags: ['nginx', 'firewall', 'systemd']
 
 - include_tasks: software.yml
+  tags: ['nginx', 'firewall', 'systemd']
 - include_tasks: firewall.yml
   when: config_firewall == true
+  tags: ['firewall']
 - include_tasks: default-page.yml
   when: setup_default_page == true
+  tags: ['nginx']
