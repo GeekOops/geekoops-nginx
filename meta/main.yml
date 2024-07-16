@@ -16,6 +16,9 @@ galaxy_info:
       versions:
         - 15.5
         - 15.6
+    - name: debian
+      versions:
+        - bookworm
 
   galaxy_tags:
     - nginx
