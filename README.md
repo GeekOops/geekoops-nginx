@@ -4,9 +4,9 @@
 
 Configurable ansible role for setting up a nginx webserver on a Linux server. Works with
 
-- openSUSE Leap 15.3
-- openSUSE Leap 15.4
-- Debian Buster
+- openSUSE Leap 15.5
+- openSUSE Leap 15.6
+- Debian Buster (11)
 
 ## Role Variables
 --------------

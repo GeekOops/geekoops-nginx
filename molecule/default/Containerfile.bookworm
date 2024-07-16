@@ -1,4 +1,4 @@
-FROM docker.io/debian:bullseye
+FROM docker.io/debian:bookworm
 
 # Install systemd, and development tools, clear cache and clean system
 RUN apt-get update && apt-get install -y systemd systemd-sysv python3 curl && rm -rf /var/cache/* && systemctl mask -- dev-hugepages.mount sys-fs-fuse-connections.mount && rm -f /etc/machine-id /var/lib/dbus/machine-id

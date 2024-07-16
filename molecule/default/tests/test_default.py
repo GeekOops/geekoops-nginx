@@ -7,7 +7,7 @@ import os
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
-def test_phpinfo(host):
+def test_index(host):
 	cmd = host.run("curl -v http://127.0.0.1/index.html")
 	print(cmd.stdout)
 	assert 'HTTP/1.1 200 OK' in cmd.stderr
